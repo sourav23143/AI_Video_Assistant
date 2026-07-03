@@ -1,0 +1,70 @@
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ─── Virtual Environments ────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ─── Environment Variables ───────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+
+# ─── IDE / Editor ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ─── OS Files ────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Project-Specific Artifacts ──────────────────────────────────────────────
+# Downloaded audio files from YouTube
+downloades/
+downloads/
+
+# ChromaDB vector store (generated at runtime)
+vector_db/
+chroma_db/
+
+# Audio chunks and temporary WAV files
+*.wav
+*.mp3
+*.mp4
+*.webm
+*.m4a
+
+# Whisper model cache
+*.pt
+
+# ─── Jupyter Notebooks ──────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ─── Testing ─────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
