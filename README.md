@@ -474,7 +474,7 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 <div align="center">
 
-**Built with ❤️ using AI-powered technologies**
+**Built with ❤️**
 
 *If you found this helpful, please ⭐ star the repository!*
 
