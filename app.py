@@ -1,13 +1,35 @@
 import streamlit as st
 import time
+import os
+import platform
 from dotenv import load_dotenv
+
+# ─── Fix Windows console encoding (prevents 'charmap' codec errors) ─────────────
+os.environ["PYTHONUTF8"] = "1"
+
+# ─── Load .env FIRST so all modules see the API keys at import time ─────────────
+load_dotenv()
+
+# ─── Also read from Streamlit secrets (for cloud deployment) ────────────────────
+for _key in ["MISTRAL_API_KEY", "SARVAM_API_KEY", "WHISPER_MODEL", "SARVAM_STT_MODEL"]:
+    if _key not in os.environ and hasattr(st, "secrets") and _key in st.secrets:
+        os.environ[_key] = st.secrets[_key]
+
+# ─── Ensure ffmpeg is on PATH (Windows only — Linux has it via apt) ─────────────
+if platform.system() == "Windows":
+    _ffmpeg_dir = os.path.expanduser(
+        r"~\AppData\Local\Microsoft\WinGet\Packages"
+        r"\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe"
+        r"\ffmpeg-8.1.2-full_build\bin"
+    )
+    if os.path.isdir(_ffmpeg_dir) and _ffmpeg_dir not in os.environ.get("PATH", ""):
+        os.environ["PATH"] = _ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
+
 from utils.audio_processor import process_input
 from core.transcriber import transcribe_all
 from core.summarizer import summarize, generate_title
 from core.extractor import extract_action_items, extract_key_decisions, extract_questions
 from core.rag_engine import build_rag_chain, ask_question
-
-load_dotenv()
 
 # ─── Page Config ────────────────────────────────────────────────────────────────
 st.set_page_config(
