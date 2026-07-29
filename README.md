@@ -378,6 +378,24 @@ python main.py
 ```
 Follow the prompts to enter a YouTube URL or file path, then chat with your meeting in the terminal.
 
+### ☁️ Deployment (Streamlit Community Cloud)
+
+This app is fully configured for free deployment on [Streamlit Community Cloud](https://share.streamlit.io/).
+
+1. Push your repository to GitHub.
+2. Log in to Streamlit Community Cloud and click **New app**.
+3. Select your repository, branch, and set the main file path to `app.py`.
+4. Click **Advanced settings** and set the **Python version to 3.11 or 3.12** (Important: 3.13+ is not recommended due to dependencies).
+5. Paste your API keys into the **Secrets** block:
+   ```toml
+   MISTRAL_API_KEY = "your-mistral-key"
+   SARVAM_API_KEY = "your-sarvam-key"
+   WHISPER_MODEL = "tiny"
+   ```
+6. Click **Deploy!**
+
+*Note: The included `packages.txt` automatically installs `ffmpeg`, and `requirements.txt` is pre-configured to use the CPU-only version of PyTorch to stay within the 1GB RAM free tier limit.*
+
 ---
 
 ## 📖 Usage Guide
