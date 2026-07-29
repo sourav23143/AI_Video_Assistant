@@ -45,5 +45,5 @@ tqdm>=4.66.0                      # Progress bars
 requests>=2.32.0
 
 # ── Compatibility Fixes ───────────────────────────────────────────────────────
-audioop-lts>=0.2.2                # audioop backport for Python 3.13+
+audioop-lts>=0.2.2 ; python_version >= "3.13" # audioop backport for Python 3.13+
 langchain-chroma>=1.0.0           # LangChain <-> ChromaDB integration
