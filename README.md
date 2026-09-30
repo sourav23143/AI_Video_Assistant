@@ -492,7 +492,6 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 <div align="center">
 
-**Built with ❤️**
 
 *If you found this helpful, please ⭐ star the repository!*
 
